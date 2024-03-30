@@ -239,7 +239,7 @@
     </nav>
 
     <section id="home">
-        <img src="testimage1.png" height="600" class="center" style="width: 40%; height: auto;">
+        <img src="testimage1.jpg" height="600" class="center" style="width: 30%; height: auto;">
         <h3>Welcome to my website</h3>
     </section>
 
@@ -363,16 +363,15 @@
     </div>
 
     <section id="contact">
-        <h2>Contact</h2>
 
-        <img src="contactme.jpg" height="600" class="center" style="width: 40%; height: auto;">
+        <img src="contactme.jpg" height="600" class="center" style="width: 40%; height: auto; margin-top: 15px;">
 
         <!-- <video width="500" controls autoplay muted class="center" style="width: 50%; height: auto;">
             <source src="testvideo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video> -->
 
-        <p>
+        <p style="margin-top: 45px;"> 
             <a href="mailto:albertsunyifan@gmail.com" target="_blank" title="Gmail" style="text-decoration: none;">
                 <img src="gmail.png" style="min-width: 50px;" width="4%" height="auto">
             </a>&ensp;&ensp;&ensp;&ensp;
@@ -388,9 +387,9 @@
         // Scroll to the specified section when a navigation link is clicked
         function scrollToSection(sectionId) {
             const section = document.querySelector(sectionId);
-            const offset = 20;
+            const offset = 20;        
             const sectionTop = section.offsetTop - offset;
-
+  
             window.scrollTo({
                 top: sectionTop,
                 behavior: "smooth"
