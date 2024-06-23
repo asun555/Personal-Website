@@ -1,402 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albert Sun - Personal Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albert Sun - Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+    />
+
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            /* Updated background color to white */
-            overflow-x: hidden;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        /* Updated background color to white */
+        overflow-x: hidden;
+      }
 
-        header {
-            background-color: #ff8c00;
-            /* Orange header background */
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
-        }
+      header {
+        background-color: #ff8c00;
+        /* Orange header background */
+        color: #fff;
+        text-align: center;
+        padding: 1em 0;
+      }
 
-        nav {
-            background-color: #007acc;
-            /* Blue navigation background */
-            padding: 0.5em;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+      nav {
+        background-color: #007acc;
+        /* Blue navigation background */
+        padding: 0.5em;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5em 1em;
-            margin: 0 1em;
-            display: inline-block;
-            cursor: pointer;
-        }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        margin: 0 1em;
+        display: inline-block;
+        cursor: pointer;
+      }
 
-        section {
-            padding: 2em;
-            background-color: #ff8c00;
-            /* Orange section background */
-            border-radius: 8px;
-            margin: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+      section {
+        padding: 2em;
+        background-color: #ff8c00;
+        /* Orange section background */
+        border-radius: 8px;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        h1 {
-            text-align: center;
-        }
+      h1 {
+        text-align: center;
+      }
 
-        h2 {
-            font-size: 45px;
-            margin-top: 40px;
-            color: #007acc;
-            /* Blue heading color */
-            text-align: center;
-        }
+      h2 {
+        font-size: 45px;
+        margin-top: 40px;
+        color: #007acc;
+        /* Blue heading color */
+        text-align: center;
+      }
 
+      h3 {
+        font-size: 25px;
+        color: #007acc;
+        text-align: center;
+      }
 
-        h3 {
-            font-size: 25px;
-            color: #007acc;
-            text-align: center;
-        }
+      h3 a {
+        text-decoration: none;
+        color: #333;
+        /* Set the initial text color */
+        position: relative;
+        transition: color 0.3s ease;
+      }
 
-        h3 a {
-            text-decoration: none;
-            color: #333;
-            /* Set the initial text color */
-            position: relative;
-            transition: color 0.3s ease;
-        }
+      h3 a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #00f;
+        /* Set the initial glow color */
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out 0s;
+      }
 
-        h3 a::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #00f;
-            /* Set the initial glow color */
-            visibility: hidden;
-            transform: scaleX(0);
-            transition: all 0.3s ease-in-out 0s;
-        }
+      h3 a:hover {
+        color: #00f;
+        /* Set the color on hover */
+      }
 
-        h3 a:hover {
-            color: #00f;
-            /* Set the color on hover */
-        }
+      h3 a:hover::before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
 
-        h3 a:hover::before {
-            visibility: visible;
-            transform: scaleX(1);
-        }
+      p {
+        text-align: center;
+      }
 
-        p {
-            text-align: center;
-        }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+      footer {
+        background-color: #007acc;
+        /* Blue footer background */
+        color: #fff;
+        text-align: center;
+        padding: 1em 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
 
-        footer {
-            background-color: #007acc;
-            /* Blue footer background */
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      .scroll-down-btn {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+      }
 
-        .scroll-down-btn {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-        }
+      .scroll-down-btn a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
+      }
 
-        .scroll-down-btn a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 24px;
-        }
+      /* Update the styling for the projects section */
+      #projects {
+        text-align: center;
+      }
 
-        /* Update the styling for the projects section */
-        #projects {
-            text-align: center;
-        }
+      .slideshow-container {
+        max-width: 800px;
+        /* Set a maximum width for the slideshow container */
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .slideshow-container {
-            max-width: 800px;
-            /* Set a maximum width for the slideshow container */
-            margin: auto;
-            position: relative;
-            overflow: hidden;
-        }
+      .mySlides {
+        display: none;
+      }
 
-        .mySlides {
-            display: none;
-        }
+      .slideshow-container-about {
+        max-width: 800px;
+        /* Set a maximum width for the slideshow container */
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .slideshow-container-about {
-            max-width: 800px;
-            /* Set a maximum width for the slideshow container */
-            margin: auto;
-            position: relative;
-            overflow: hidden;
-        }
+      .mySlides-about {
+        display: none;
+      }
 
-        .mySlides-about {
-            display: none;
-        }
+      /* Navigation buttons styling */
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 3px;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: background-color 0.3s;
+      }
 
-        /* Navigation buttons styling */
-        .prev,
-        .next {
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 3px;
-            background-color: rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s;
-        }
+      .prev {
+        left: 10px;
+      }
 
-        .prev {
-            left: 10px;
-        }
+      .next {
+        right: 10px;
+      }
 
-        .next {
-            right: 10px;
-        }
+      .prev,
+      .next {
+        transform: translateY(-50%);
+      }
 
-        .prev,
-        .next {
-            transform: translateY(-50%);
-        }
+      #projects .slideshow-container {
+        position: relative;
+        margin: auto;
+      }
 
-        #projects .slideshow-container {
-            position: relative;
-            margin: auto;
-        }
+      #projects .scroll-down-btn {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
-        #projects .scroll-down-btn {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+      #projects .scroll-down-btn a {
+        font-size: 24px;
+      }
 
-        #projects .scroll-down-btn a {
-            font-size: 24px;
-        }
+      .arrow-container {
+        text-align: center;
+      }
 
-        .arrow-container {
-            text-align: center;
-        }
+      .arrow {
+        cursor: pointer;
+        font-size: 50px;
+        color: #333;
+        transition: color 0.3s, text-shadow 0.3s;
+        display: inline-block;
+        line-height: 1;
+      }
 
-        .arrow {
-            cursor: pointer;
-            font-size: 50px;
-            color: #333;
-            transition: color 0.3s, text-shadow 0.3s;
-            display: inline-block;
-            line-height: 1;
-        }
-
-        .arrow:hover {
-            color: #ff9900;
-            text-shadow: 0 0 10px rgba(255, 153, 0, 0.8);
-        }
+      .arrow:hover {
+        color: #ff9900;
+        text-shadow: 0 0 10px rgba(255, 153, 0, 0.8);
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <nav>
-        <a onclick="scrollToSection('#home')">Home</a>
-        <a onclick="scrollToSection('#about')">About</a>
-        <a onclick="scrollToSection('#projects')">Projects</a>
-        <a onclick="scrollToSection('#contact')">Contact</a>
+      <a onclick="scrollToSection('#home')">Home</a>
+      <a onclick="scrollToSection('#about')">About</a>
+      <a onclick="scrollToSection('#projects')">Projects</a>
+      <a onclick="scrollToSection('#contact')">Contact</a>
     </nav>
 
     <section id="home">
-        <img src="hello.jpg" height="600" class="center" style="width: 30%; height: auto;">
-        <h3>Welcome to my website</h3>
+      <img
+        src="hello.jpg"
+        height="600"
+        class="center"
+        style="width: 30%; height: auto"
+      />
+      <h3>Welcome to my website</h3>
     </section>
 
     <p><strong>Scroll Down</strong></p>
 
     <div class="arrow-container">
-        <div class="arrow arrow-down" onclick="scrollToSection('#about')">&#9660;</div>
+      <div class="arrow arrow-down" onclick="scrollToSection('#about')">
+        &#9660;
+      </div>
     </div>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I am a penultimate software engineering student at The University of Auckland</p>
-        <p><a href="Albert Sun Resume (6).pdf" download="Albert Sun Resume (6).pdf" target="_blank">My Resume</a>
-        </p>
-        <p>
-            <a href="https://www.op.gg/summoners/oce/Mister%20Sun-OCE" target="_blank" title="OP.GG" style="text-decoration: none;">
-                <img src="Icon Images/opgg.png" style="min-width: 50px;" width="4%" height="auto">
-            </a>&ensp;
-            <a href="https://myanimelist.net/profile/MisterSun" target="_blank" title="MAL" style="text-decoration: none;">
-                <img src="Icon Images/mal.png" style="min-width: 50px;" width="3%" height="auto">
-            </a>
-        </p>        
+      <h2>About Me</h2>
+      <p>
+        I am a penultimate software engineering student at The University of
+        Auckland
+      </p>
+      <p>
+        <a
+          href="Albert Sun Resume (6).pdf"
+          download="Albert Sun Resume (6).pdf"
+          target="_blank"
+          >My Resume</a
+        >
+      </p>
+      <p>
+        <a
+          href="https://www.op.gg/summoners/oce/Mister%20Sun-OCE"
+          target="_blank"
+          title="OP.GG"
+          style="text-decoration: none"
+        >
+          <img
+            src="Icon Images/opgg.png"
+            style="min-width: 50px"
+            width="4%"
+            height="auto"
+          /> </a
+        >&ensp;
+        <a
+          href="https://myanimelist.net/profile/MisterSun"
+          target="_blank"
+          title="MAL"
+          style="text-decoration: none"
+        >
+          <img
+            src="Icon Images/mal.png"
+            style="min-width: 50px"
+            width="3%"
+            height="auto"
+          />
+        </a>
+      </p>
 
-        <h3>Life Gallery</h3>
-        <p>
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 100%;">
-            <img src="About Me Pics/testimage2.jpg" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;">
-            <img src="About Me Pics/about1.JPG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;">
-            <!-- <img src="about2.JPG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;"> -->
-            <!-- <img src="about3.JPG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;"> -->
-            <!-- <img src="about4.JPG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;"> -->
-            <img src="About Me Pics/about5.JPEG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;">
-            <img src="About Me Pics/about6.JPEG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;">
-            <img src="About Me Pics/about7.JPEG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;">
-        </div>
-        </p>
-
+      <h3>Life Gallery</h3>
+      <p></p>
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          max-width: 100%;
+        "
+      >
+        <img
+          src="About Me Pics/testimage2.jpg"
+          height="auto"
+          style="max-width: 20%; height: auto; margin-bottom: 10px"
+        />
+        <img
+          src="About Me Pics/about1.JPG"
+          height="auto"
+          style="max-width: 20%; height: auto; margin-bottom: 10px"
+        />
+        <!-- <img src="about2.JPG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;"> -->
+        <!-- <img src="about3.JPG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;"> -->
+        <!-- <img src="about4.JPG" height="auto" style="max-width: 20%; height: auto; margin-bottom: 10px;"> -->
+        <img
+          src="About Me Pics/about5.JPEG"
+          height="auto"
+          style="max-width: 20%; height: auto; margin-bottom: 10px"
+        />
+        <img
+          src="About Me Pics/about6.JPEG"
+          height="auto"
+          style="max-width: 20%; height: auto; margin-bottom: 10px"
+        />
+        <img
+          src="About Me Pics/about7.JPEG"
+          height="auto"
+          style="max-width: 20%; height: auto; margin-bottom: 10px"
+        />
+      </div>
     </section>
 
     <p><strong>Scroll Down</strong></p>
 
     <div class="arrow-container">
-        <div class="arrow arrow-down" onclick="scrollToSection('#projects')">&#9660;</div>
+      <div class="arrow arrow-down" onclick="scrollToSection('#projects')">
+        &#9660;
+      </div>
     </div>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <h3><a href="https://github.com/asun555/EscAIpe-Room" target="_blank">EscAIpe Room</a></h3>
+      <h2>Projects</h2>
+      <h3>
+        <a href="https://github.com/asun555/EscAIpe-Room" target="_blank"
+          >EscAIpe Room</a
+        >
+      </h3>
 
-        <div class="slideshow-container">
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <div class="slideshow-container">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 
-            <div class="mySlides">
-                <img src="Project Pics and Video/escAIpeRoom2.jpg" alt="Image 1" style="width: 100%; height: auto;">
-            </div>
-
-            <div class="mySlides">
-                <img src="Project Pics and Video/escAIpeRoom1.jpg" alt="Image 2" style="width: 100%; height: auto;">
-            </div>
-
-            <div class="mySlides">
-                <img src="Project Pics and Video/escAIpeRoom3.jpg" alt="Image 3" style="width: 100%; height: auto;">
-            </div>
-
-            <div class="mySlides">
-                <img src="Project Pics and Video/escAIpeRoom4.jpg" alt="Image 4" style="width: 100%; height: auto;">
-            </div>
-
-            <div class="mySlides">
-                <video width="100%" controls autoplay muted style="width: 100%; height: auto;">
-                    <source src="Project Pics and Video/escAIpeRoomDemo.mkv" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="mySlides">
+          <img
+            src="Project Pics and Video/escAIpeRoom2.jpg"
+            alt="Image 1"
+            style="width: 100%; height: auto"
+          />
         </div>
 
-        <!-- Navigation buttons -->
-        <script>
-            let slideIndex = 1;
-            showSlides(slideIndex);
+        <div class="mySlides">
+          <img
+            src="Project Pics and Video/escAIpeRoom1.jpg"
+            alt="Image 2"
+            style="width: 100%; height: auto"
+          />
+        </div>
 
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
+        <div class="mySlides">
+          <img
+            src="Project Pics and Video/escAIpeRoom3.jpg"
+            alt="Image 3"
+            style="width: 100%; height: auto"
+          />
+        </div>
 
-            function showSlides(n) {
-                let i;
-                const slides = document.getElementsByClassName("mySlides");
+        <div class="mySlides">
+          <img
+            src="Project Pics and Video/escAIpeRoom4.jpg"
+            alt="Image 4"
+            style="width: 100%; height: auto"
+          />
+        </div>
 
-                if (n > slides.length) {
-                    slideIndex = 1;
-                }
-                if (n < 1) {
-                    slideIndex = slides.length;
-                }
+        <div class="mySlides">
+          <video
+            width="100%"
+            controls
+            autoplay
+            muted
+            style="width: 100%; height: auto"
+          >
+            <source
+              src="Project Pics and Video/escAIpeRoomDemo.mkv"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
 
-                slides[slideIndex - 1].style.display = "block";
-            }
-        </script>
+      <!-- Navigation buttons -->
+      <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
 
-        <h3><a href="https://github.com/asun555/A-Picture-is-Worth-10000-Words" target="_blank">A Picture is Worth
-                10,000 Words</a></h3>
+        function plusSlides(n) {
+          showSlides((slideIndex += n));
+        }
 
+        function showSlides(n) {
+          let i;
+          const slides = document.getElementsByClassName("mySlides");
 
-        <a href="https://github.com/asun555" target="_blank" title="GitHub">
-            <img src="Icon Images/github.png"min-width: 50px; width="3%" height="auto">
-        </a>
+          if (n > slides.length) {
+            slideIndex = 1;
+          }
+          if (n < 1) {
+            slideIndex = slides.length;
+          }
 
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+
+          slides[slideIndex - 1].style.display = "block";
+        }
+      </script>
+
+      <h3>
+        <a
+          href="https://github.com/asun555/A-Picture-is-Worth-10000-Words"
+          target="_blank"
+          >A Picture is Worth 10,000 Words</a
+        >
+      </h3>
+
+      <a href="https://github.com/asun555" target="_blank" title="GitHub">
+        <img
+          src="Icon Images/github.png"
+          min-width:
+          50px;
+          width="3%"
+          height="auto"
+        />
+      </a>
     </section>
 
     <p><strong>Scroll Down</strong></p>
 
     <div class="arrow-container">
-        <div class="arrow arrow-down" onclick="scrollToSection('#contact')">&#9660;</div>
+      <div class="arrow arrow-down" onclick="scrollToSection('#contact')">
+        &#9660;
+      </div>
     </div>
 
     <section id="contact">
+      <img
+        src="contactme.jpg"
+        height="600"
+        class="center"
+        style="width: 40%; height: auto; margin-top: 15px"
+      />
 
-        <img src="contactme.jpg" height="600" class="center" style="width: 40%; height: auto; margin-top: 15px;">
-
-        <!-- <video width="500" controls autoplay muted class="center" style="width: 50%; height: auto;">
+      <!-- <video width="500" controls autoplay muted class="center" style="width: 50%; height: auto;">
             <source src="testvideo.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video> -->
 
-        <p style="margin-top: 45px;"> 
-            <a href="mailto:albertsunyifan@gmail.com" target="_blank" title="Gmail" style="text-decoration: none;">
-                <img src="Icon Images/gmail.png" style="min-width: 50px;" width="4%" height="auto">
-            </a>&ensp;&ensp;&ensp;&ensp;
-            <a href="https://www.linkedin.com/in/albert-sun-8924b2200/" target="_blank" title="LinkedIn" style="text-decoration: none;">
-                <img src="Icon Images/linkedin.png" style="min-width: 200px;" width="3%" height="auto">
-            </a>      
-        </p>
-        
-
+      <p style="margin-top: 45px">
+        <a
+          href="mailto:albertsunyifan@gmail.com"
+          target="_blank"
+          title="Gmail"
+          style="text-decoration: none"
+        >
+          <img
+            src="Icon Images/gmail.png"
+            style="min-width: 50px"
+            width="4%"
+            height="auto"
+          /> </a
+        >&ensp;&ensp;&ensp;&ensp;
+        <a
+          href="https://www.linkedin.com/in/albert-sun-8924b2200/"
+          target="_blank"
+          title="LinkedIn"
+          style="text-decoration: none"
+        >
+          <img
+            src="Icon Images/linkedin.png"
+            style="min-width: 200px"
+            width="3%"
+            height="auto"
+          />
+        </a>
+      </p>
     </section>
 
     <script>
-        // Scroll to the specified section when a navigation link is clicked
-        function scrollToSection(sectionId) {
-            const section = document.querySelector(sectionId);
-            const offset = 20;        
-            const sectionTop = section.offsetTop - offset;
-  
-            window.scrollTo({
-                top: sectionTop,
-                behavior: "smooth"
-            });
-        }
+      // Scroll to the specified section when a navigation link is clicked
+      function scrollToSection(sectionId) {
+        const section = document.querySelector(sectionId);
+        const offset = 20;
+        const sectionTop = section.offsetTop - offset;
+
+        window.scrollTo({
+          top: sectionTop,
+          behavior: "smooth",
+        });
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
