@@ -12,39 +12,80 @@
 
     <style>
       body {
-        font-family: "Arial", sans-serif;
+        font-family: "Montserrat", sans-serif;
         margin: 0;
         padding: 0;
         background-color: #fff;
-        /* Updated background color to white */
-        overflow-x: hidden;
       }
 
       header {
-        background-color: #ff8c00;
-        /* Orange header background */
-        color: #fff;
-        text-align: center;
-        padding: 1em 0;
-      }
-
-      nav {
         background-color: #007acc;
-        /* Blue navigation background */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        font-family: "Montserrat", sans-serif;
         padding: 0.5em;
         text-align: center;
         position: sticky;
         top: 0;
         z-index: 100;
+        margin-left: auto;
       }
 
-      nav a {
-        color: #fff;
+      .logo-text {
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 20px;
+        color: white;
         text-decoration: none;
-        padding: 0.5em 1em;
-        margin: 0 1em;
-        display: inline-block;
+        position: relative;
+        padding-left: 10px; /* Add this line to add padding to the left */
+      }
+
+      .logo-text::after {
+        content: "";
+        position: absolute;
+        left: 10px; /* Adjust this value to match the padding-left */
+        bottom: -2px;
+        width: calc(100% - 10px); /* Set width to 100% minus padding-left */
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+      }
+
+      .logo-text:hover::after {
+        background-color: white;
+      }
+
+      .tabs {
+        padding: 0.5em;
+        margin-left: auto;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .tabs a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        position: relative;
         cursor: pointer;
+      }
+
+      .tabs a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+      }
+
+      .tabs a:hover::after {
+        background-color: white;
       }
 
       section {
@@ -234,12 +275,22 @@
   </head>
 
   <body>
-    <nav>
+    <header>
+      <a href="#" class="logo-text">Albert Sun</a>
+      <div class="tabs">
+        <a onclick="scrollToSection('#home')">Home</a>
+        <a onclick="scrollToSection('#about')">About</a>
+        <a onclick="scrollToSection('#projects')">Projects</a>
+        <a onclick="scrollToSection('#contact')">Contact</a>
+      </div>
+    </header>
+
+    <!-- <nav>
       <a onclick="scrollToSection('#home')">Home</a>
       <a onclick="scrollToSection('#about')">About</a>
       <a onclick="scrollToSection('#projects')">Projects</a>
       <a onclick="scrollToSection('#contact')">Contact</a>
-    </nav>
+    </nav> -->
 
     <section id="home">
       <img
@@ -262,15 +313,17 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I am a penultimate software engineering student at The University of
-        Auckland
+        <b
+          >I am a penultimate software engineering student at The University of
+          Auckland</b
+        >
       </p>
       <p>
         <a
           href="Albert Sun Resume (6).pdf"
           download="Albert Sun Resume (6).pdf"
           target="_blank"
-          >My Resume</a
+          ><b>My Resume</b></a
         >
       </p>
       <p>
@@ -440,6 +493,12 @@
           slides[slideIndex - 1].style.display = "block";
         }
       </script>
+
+      <h3>
+        <a href="https://github.com/UoaWDCC/uasc-web" target="_blank"
+          >UoA Snowsports Club Website & Booking System</a
+        >
+      </h3>
 
       <h3>
         <a
